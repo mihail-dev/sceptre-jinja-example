@@ -15,3 +15,4 @@ sceptre_user_data:
           - GET
         AllowedOrigins:
           - "*"
+stack_name: sandbox-wombat-s3-bucket-cfasandbox1
