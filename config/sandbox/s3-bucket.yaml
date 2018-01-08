@@ -1,6 +1,6 @@
 template_path: templates/s3_buckets.py
 sceptre_user_data:
-  crtestingbucket42zdh:
+  cfasandbox1:
     Tags:
       TestKey: TestValue
     LifecycleConfiguration:
