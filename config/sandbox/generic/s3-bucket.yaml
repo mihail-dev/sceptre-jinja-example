@@ -3,6 +3,8 @@ sceptre_user_data:
   cfasandbox1:
     Tags:
       TestKey: TestValue
+      environment: sandbox
+      vpc: wombat
     LifecycleConfiguration:
       - Status: Enabled
         Transitions:
