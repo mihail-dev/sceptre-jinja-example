@@ -1,0 +1,15 @@
+template_path: templates/s3_buckets.py
+sceptre_user_data:
+  crtestingbucket42zdh:
+    Tags:
+      TestKey: TestValue
+    LifecycleConfiguration:
+      - Status: Enabled
+        Transitions:
+          - StorageClass: GLACIER
+            TransitionInDays: "7"
+    CorsConfiguration:
+      - AllowedMethods:
+          - GET
+        AllowedOrigins:
+          - "*"

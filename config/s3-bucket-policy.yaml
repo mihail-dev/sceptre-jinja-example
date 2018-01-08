@@ -1,0 +1,29 @@
+template_path: templates/s3_bucket_policy.py
+parameters:
+    BucketName: "cfa-sandbox-1"
+sceptre_user_data:
+  # Only one BucketPolicy can be defined per bucket.
+  # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html
+  CloudTrailPolicy:
+    PolicyDocument:
+      Version: "2012-10-17"
+      Statement:
+        - Sid: "AWSCloudTrailAclCheck"
+          Effect: "Allow"
+          Action:
+            - "s3:GetBucketAcl"
+          Principal:
+            Service: "cloudtrail.amazonaws.com"
+          Resource:
+              - !stack_output s3-bucket::crtestingbucket42BucketArn
+        - Sid: "AWSCloudTrailWrite"
+          Effect: "Allow"
+          Action:
+            - "s3:PutObject"
+          Principal:
+            Service: "cloudtrail.amazonaws.com"
+          Condition:
+            StringEquals:
+              s3:x-amz-acl: "bucket-owner-full-control"
+          Resource:
+            - "arn:aws:s3:::crtestingbucket42zdh/AWSLogs/580501780015/*"
