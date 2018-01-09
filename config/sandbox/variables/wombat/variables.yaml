@@ -1,2 +1,7 @@
+# environment
 environment: sandbox
 vpc: wombat
+
+# stack names
+s3_bucket_stack_name: sandbox-wombat-s3-bucket-cfasandbox1
+s3_bucket_policy_stack_name: sandbox-wombat-s3-policy-cfasandbox1

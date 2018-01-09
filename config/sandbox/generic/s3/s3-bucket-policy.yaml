@@ -30,4 +30,4 @@ sceptre_user_data:
               s3:x-amz-acl: "bucket-owner-full-control"
           Resource:
             - "arn:aws:s3:::cfasandbox1/AWSLogs/580501780015/*"
-stack_name: sandbox-wombat-s3-policy-cfasandbox1
+stack_name: "{{ var.s3_bucket_policy_stack_name }}"
