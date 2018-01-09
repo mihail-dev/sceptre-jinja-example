@@ -1,0 +1,10 @@
+# environment
+environment: sandbox
+vpc: llama
+
+# s3
+bucket_name: cfasandboxllama1
+
+# stack names
+s3_bucket_stack_name: sandbox-llama-s3-bucket-cfasandboxllama1
+s3_bucket_policy_stack_name: sandbox-llama-s3-policy-cfasandboxllama1

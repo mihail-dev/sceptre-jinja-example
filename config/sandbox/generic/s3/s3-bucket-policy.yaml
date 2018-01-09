@@ -1,8 +1,7 @@
 template_path: templates/s3_bucket_policy.py
 parameters:
-    BucketName: "cfasandbox1"
+    BucketName: "{{ var.bucket_name }}"
 dependencies:
-  # - sandbox/generic/s3/sandbox-wombat-s3-bucket-cfasandbox1
   - sandbox/generic/s3/s3-bucket
 sceptre_user_data:
   # Only one BucketPolicy can be defined per bucket.
@@ -18,7 +17,7 @@ sceptre_user_data:
           Principal:
             Service: "cloudtrail.amazonaws.com"
           Resource:
-              - !stack_output_external sandbox-wombat-s3-bucket-cfasandbox1::cfasandbox1BucketArn
+              - !stack_output_external sandbox-{{ var.vpc }}-s3-bucket-{{ var.bucket_name }}::{{ var.bucket_name }}BucketArn
         - Sid: "AWSCloudTrailWrite"
           Effect: "Allow"
           Action:
@@ -29,5 +28,5 @@ sceptre_user_data:
             StringEquals:
               s3:x-amz-acl: "bucket-owner-full-control"
           Resource:
-            - "arn:aws:s3:::cfasandbox1/AWSLogs/580501780015/*"
+            - "arn:aws:s3:::{{ var.bucket_name }}/AWSLogs/580501780015/*"
 stack_name: "{{ var.s3_bucket_policy_stack_name }}"

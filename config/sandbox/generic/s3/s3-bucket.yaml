@@ -1,6 +1,6 @@
 template_path: templates/s3_buckets.py
 sceptre_user_data:
-  cfasandbox1:
+  {{ var.bucket_name }}:
     Tags:
       TestKey: TestValue
       environment: "{{ var.environment }}"

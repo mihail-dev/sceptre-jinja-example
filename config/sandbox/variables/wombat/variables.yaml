@@ -2,6 +2,9 @@
 environment: sandbox
 vpc: wombat
 
+# s3
+bucket_name: cfasandbox1
+
 # stack names
 s3_bucket_stack_name: sandbox-wombat-s3-bucket-cfasandbox1
 s3_bucket_policy_stack_name: sandbox-wombat-s3-policy-cfasandbox1
